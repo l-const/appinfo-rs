@@ -14,19 +14,29 @@
 mod cli;
 
 use cli::setup;
-use proc_macro::TokenStream;
+use proc_macro::{quote, TokenStream};
 use syn::parse::{Parse, ParseStream, Parser};
-use syn::{braced, Attribute, Ident, Path, Signature, Visibility};
+use syn::{braced, Attribute, Ident, Path, Signature, Visibility, ItemFn};
+use quote::{quote, quote_spanned, ToTokens};
 
 // This `extern` is required for older `rustc` versions but newer `rustc`
 // versions warn about the unused `extern crate`.
 #[allow(unused_extern_crates)]
 extern crate proc_macro;
+#[macro_use] extern crate quote;
+use quote::ToTokens;
+
+
 
 #[proc_macro_attribute]
 pub fn main(args: TokenStream, item: TokenStream) -> TokenStream {
-    setup();
-    validate(item)
+    validate(item);
+    quote!(
+        fn main() {
+            setup()
+            return;
+        }
+    ).into() 
 }
 
 pub(crate) fn validate(item: TokenStream) -> TokenStream {
@@ -34,22 +44,22 @@ pub(crate) fn validate(item: TokenStream) -> TokenStream {
     item
 }
 
-#[derive(Debug)]
-struct ItermFn {
-    sig: Signature,
-}
+// #[derive(Debug)]
+// struct ItermFn {
+//     sig: Signature,
+// }
 
-impl Parse for ItemFn {
-    #[inline]
-    fn parse(input: ParseStream<'_>) -> syn::Result<Self> {
-        let outer_attrs = input.call(Attribute::parse_outer)?;
-        let vis: Visibility = input.parse()?;
-        let sig: Signature = input.parse()?;
+// impl Parse for ItemFn {
+//     #[inline]
+//     fn parse(input: ParseStream<'_>) -> syn::Result<Self> {
+//         let outer_attrs = input.call(Attribute::parse_outer)?;
+//         let vis: Visibility = input.parse()?;
+//         let sig: Signature = input.parse()?;
 
-        if sig.ident != "main" {
-            return Err("macro should be aplied only to the main function!");
-        }
+//         if sig.ident != "main" {
+//             return Err("macro should be aplied only to the main function!");
+//         }
 
-        Ok(Self { sig })
-    }
-}
+//         Ok(Self { sig })
+//     }
+// }
