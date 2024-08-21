@@ -15,9 +15,8 @@ mod cli;
 
 use cli::setup;
 use proc_macro::TokenStream;
-use syn::{braced, Attribute, Ident, Path, Signature, Visibility};
 use syn::parse::{Parse, ParseStream, Parser};
-
+use syn::{braced, Attribute, Ident, Path, Signature, Visibility};
 
 // This `extern` is required for older `rustc` versions but newer `rustc`
 // versions warn about the unused `extern crate`.
@@ -41,20 +40,16 @@ struct ItermFn {
 }
 
 impl Parse for ItemFn {
-     #[inline]
+    #[inline]
     fn parse(input: ParseStream<'_>) -> syn::Result<Self> {
         let outer_attrs = input.call(Attribute::parse_outer)?;
         let vis: Visibility = input.parse()?;
         let sig: Signature = input.parse()?;
-        
+
         if sig.ident != "main" {
-            return Err("macro should be aplied only to the main function!")
+            return Err("macro should be aplied only to the main function!");
         }
 
-        Ok(Self {
-            sig
-        })
+        Ok(Self { sig })
     }
 }
-
-

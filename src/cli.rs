@@ -7,7 +7,7 @@ struct CargoEnvVars {
     version: &'static str,
     commit: &'static str,
     description: &'static str,
-    repository: &'static str
+    repository: &'static str,
 }
 
 fn detailed_version(version: &str, repository: &str, commit: &str) -> &str {
@@ -16,7 +16,12 @@ fn detailed_version(version: &str, repository: &str, commit: &str) -> &str {
 
 pub(crate) fn setup() {
     let env_vars = init_env_vars();
-    let CargoEnvVars {commit, repository, version , ..} = env_vars;
+    let CargoEnvVars {
+        commit,
+        repository,
+        version,
+        ..
+    } = env_vars;
     let _matches = Command::new(env_vars.app_name)
         .author(env_vars.author)
         .version(detailed_version(version, repository, commit))
@@ -26,7 +31,7 @@ pub(crate) fn setup() {
 
     if std::env::args().len() > 1 {
         return;
-    } 
+    }
 }
 
 fn init_env_vars() -> CargoEnvVars {
@@ -41,6 +46,6 @@ fn init_env_vars() -> CargoEnvVars {
         version,
         commit: version,
         description,
-        repository
+        repository,
     }
 }
