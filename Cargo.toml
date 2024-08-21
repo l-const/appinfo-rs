@@ -1,0 +1,18 @@
+[package]
+name = "appinfo"
+version = "0.1.0"
+authors = ["l-const <const-l@outlook.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/l-const/appinfo-rs"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+clap = "4.0.0"
+
+[dev-dependencies]
+quote = "1.0"
+syn = "2.0.75"
+trybuild ={ version = "*"}
