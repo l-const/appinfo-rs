@@ -5,6 +5,7 @@ authors = ["l-const <const-l@outlook.com>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/l-const/appinfo-rs"
+description = "Macro to derive appinfo at compile time using cargo compile-time env vars and `clap-rs`."
 
 [lib]
 proc-macro = true
