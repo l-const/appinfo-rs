@@ -1,5 +1,12 @@
 # appinfo-rs
-Macro to derive appinfo at compile time using cargo compile-time env vars and `clap-rs`.
+
+<p align="center">
+    <img width="200" alt="Alacritty Logo" src="https://github.com/l-const/appinfo-rs/blob/main/appinfo-logo.png">
+</p>
+
+<h1 align="center">Macro to derive appinfo at compile time using cargo compile-time env vars and `clap-rs`.
+</h1>
+
 
 * https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-crates
 
