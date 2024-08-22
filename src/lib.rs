@@ -12,26 +12,27 @@
     attr(deny(warnings, rust_2018_idioms), allow(dead_code, unused_variables))
 ))]
 
-
 #[allow(unused_extern_crates)]
 extern crate proc_macro;
-
 
 mod cli;
 
 use cli::setup;
 use proc_macro::TokenStream as ProcTokenStream;
 use proc_macro2::{TokenStream, TokenTree};
-use syn::{braced, parse::{Parse, ParseStream}, parse_macro_input, Attribute, Ident, Path, Signature, Stmt, Visibility};
 use quote::{quote, ToTokens};
-
+use syn::{
+    braced,
+    parse::{Parse, ParseStream},
+    parse_macro_input, Attribute, Ident, Path, Signature, Stmt, Visibility,
+};
 
 #[proc_macro_attribute]
 pub fn main(args: ProcTokenStream, item: ProcTokenStream) -> ProcTokenStream {
     let item: TokenStream = item.into();
     let fnn: ItemFn = syn::parse2(item.clone()).unwrap();
     let body: Body = fnn.body();
-    let s : TokenStream = setup().parse().unwrap();
+    let s: TokenStream = setup().parse().unwrap();
     let prefix: ItemFn = syn::parse2(s.clone()).unwrap();
     let prefix_body = prefix.body();
     let main_body = quote! {
@@ -44,10 +45,9 @@ pub fn main(args: ProcTokenStream, item: ProcTokenStream) -> ProcTokenStream {
     let attrs = quote! {};
     // eprintln!("TOKENS: {}", main_body);
     main_body.into()
-}   
+}
 
-
- struct ItemFn {
+struct ItemFn {
     outer_attrs: Vec<Attribute>,
     vis: Visibility,
     sig: Signature,
@@ -55,8 +55,6 @@ pub fn main(args: ProcTokenStream, item: ProcTokenStream) -> ProcTokenStream {
     inner_attrs: Vec<Attribute>,
     stmts: Vec<proc_macro2::TokenStream>,
 }
-
-
 
 impl Parse for ItemFn {
     #[inline]
@@ -106,7 +104,6 @@ impl Parse for ItemFn {
         })
     }
 }
-
 
 impl ItemFn {
     /// Access all attributes of the function item.
@@ -158,7 +155,6 @@ impl ItemFn {
         tokens
     }
 }
-
 
 struct Body<'a> {
     brace_token: syn::token::Brace,
