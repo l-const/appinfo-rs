@@ -9,7 +9,7 @@
 ### Usage
 
 ```rust
-#[appinfo:main]
+#[appinfo::main]
 fn main(){
     // my wonderful application
     println!("hello world")!
