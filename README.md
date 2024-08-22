@@ -18,10 +18,9 @@
 ```rust
 #[appinfo::main]
 fn main(){
-    // my wonderful application
-    println!("hello world")!
-    cli.do_stuff()
-    server.listen(3000)
+    println!("hello world");
+    cli.do_stuff();
+    server.listen(3000);
 }
 ```
 
