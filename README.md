@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img width="400" alt="AppInfo Logo" src="https://github.com/l-const/appinfo-rs/blob/main/appinfo-logo.png">
+    <img width="400" alt="AppInfo Logo" src="https://raw.githubusercontent.com/l-const/appinfo-rs/master/appinfo-logo.png">
     <p align="center">
     <a href="https://crates.io/crates/appinfo">
         <img
