@@ -14,25 +14,22 @@ fn main(){
     server.listen(3000)
 }
 ```
-then in a terminal do:
 
-```bash
-app -h
-
-or
-
-app -v
-```
-All the info are retrieved at compile time.
-
-### Dependency:
-* clap-rs: (https://docs.rs/clap/latest/clap/)
-
-Install clap:
+##### Add clap:
 ```bash
 cargo add clap
 ```
+##### Dependency:
+* clap-rs: (https://docs.rs/clap/latest/clap/)
 
+then in a terminal do:
+
+```bash
+Example:
+❯ ./wonderful-cli -h
+wonderful-cli (version: 0.1.0, commit revision: 0.1.0, repository: https://github.com/l-const/wonderfl-cli) - A cli app that utilises the appinfo macro.
+```
+Info: All the info are retrieved at compile time.
 
 ### Future Enhacements
 
