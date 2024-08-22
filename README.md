@@ -29,7 +29,10 @@ Example:
 ❯ ./wonderful-cli -h
 wonderful-cli (version: 0.1.0, commit revision: 0.1.0, repository: https://github.com/l-const/wonderful-cli) - A cli app that utilises the appinfo macro.
 ```
-Info: All the info are retrieved at compile time.
+
+
+Details: All the info are retrieved at compile time. 
+For more, see here: https://github.com/l-const/appinfo-rs/blob/main/src/cli.rs#L5-L9
 
 ### Future Enhacements
 
