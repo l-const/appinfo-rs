@@ -1,16 +1,12 @@
-# appinfo-rs
 
 <p align="center">
-    <img width="200" alt="Alacritty Logo" src="https://github.com/l-const/appinfo-rs/blob/main/appinfo-logo.png">
+    <img width="400" alt="Alacritty Logo" src="https://github.com/l-const/appinfo-rs/blob/main/appinfo-logo.png">
+    <h5 align="center">A procedural macro to derive application info at compile time, using cargo compile-time env vars and `clap-rs`.</h5>
 </p>
 
-<h1 align="center">Macro to derive appinfo at compile time using cargo compile-time env vars and `clap-rs`.
-</h1>
 
 
-* https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-crates
-
-## Usage
+### Usage
 
 ```rust
 #[appinfo:main]
@@ -38,8 +34,10 @@ wonderful-cli (version: 0.1.0, commit revision: 0.1.0, repository: https://githu
 ```
 
 
-Details: All the info are retrieved at compile time. 
-For more, see here: https://github.com/l-const/appinfo-rs/blob/main/src/cli.rs#L5-L9
+### Details: 
+* All the info are retrieved at compile time.
+* Default env vars: https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-crates
+* For more, see here: https://github.com/l-const/appinfo-rs/blob/main/src/cli.rs#L5-L9
 
 ### Future Enhacements
 
