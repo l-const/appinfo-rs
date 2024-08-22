@@ -1,7 +1,14 @@
 
 <p align="center">
     <img width="400" alt="Alacritty Logo" src="https://github.com/l-const/appinfo-rs/blob/main/appinfo-logo.png">
+    <p align="center">
+    <a href="https://crates.io/crates/appinfo">
+        <img
+      src="https://img.shields.io/crates/v/appinfo?style=flat-square"
+      alt="Crates.io version"
+  /></a>
     <h5 align="center">A procedural macro to derive application info at compile time, using cargo compile-time env vars and `clap-rs`.</h5>
+ </p>
 </p>
 
 
@@ -21,9 +28,8 @@ fn main(){
 ##### Add clap:
 ```bash
 cargo add clap
+cargo add appinfo
 ```
-##### Dependency:
-* clap-rs: (https://docs.rs/clap/latest/clap/)
 
 then in a terminal do:
 
