@@ -11,9 +11,7 @@
  </p>
 </p>
 
-
-
-### Usage
+## Usage
 
 ```rust
 #[appinfo::main]
@@ -24,7 +22,7 @@ fn main(){
 }
 ```
 
-##### Add clap:
+### Dependencies:
 ```bash
 cargo add clap
 cargo add appinfo
@@ -38,13 +36,12 @@ Example:
 wonderful-cli (version: 0.1.0, commit revision: 0.1.0, repository: https://github.com/l-const/wonderful-cli) - A cli app that utilises the appinfo macro.
 ```
 
-
-### Details: 
+## Details: 
 * All the info are retrieved at compile time.
 * Default env vars: https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-crates
 * For more, see here: https://github.com/l-const/appinfo-rs/blob/main/src/cli.rs#L5-L9
 
-### Future Enhacements
+## Future Enhacements
 
 - [ ] Validation logic that the macro is applied only in `main`.
 - [ ] Override of vars through the macro args.
